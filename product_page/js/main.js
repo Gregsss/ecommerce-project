@@ -208,7 +208,7 @@ $(document).ready(function () {
 
 //* START OF LOAD FUNCTION
 function loadData() {
-    $.getJSON("http://localhost/Project/product_page/functions/read.php", function (data) {
+    $.getJSON("./functions/read.php", function (data) {
         var map = Object.keys(data);
         lengthofmap = map.length;
         //Clear the list before adding new data to stop duplication
