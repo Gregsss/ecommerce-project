@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <title>Product Page</title>
+</head>
+
+<body id="main">
+    <div id="topMostRow">
+        <div id="userRow">
+            <h4>Welcome: </h4>
+            <svg id="userIcon" xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="#0000000">
+                <path d="M360-390q-21 0-35.5-14.5T310-440q0-21 14.5-35.5T360-490q21 0 35.5 14.5T410-440q0 21-14.5 35.5T360-390Zm240 0q-21 0-35.5-14.5T550-440q0-21 14.5-35.5T600-490q21 0 35.5 14.5T650-440q0 21-14.5 35.5T600-390ZM480-160q134 0 227-93t93-227q0-24-3-46.5T786-570q-21 5-42 7.5t-44 2.5q-91 0-172-39T390-708q-32 78-91.5 135.5T160-486v6q0 134 93 227t227 93Zm0 80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-54-715q42 70 114 112.5T700-640q14 0 27-1.5t27-3.5q-42-70-114-112.5T480-800q-14 0-27 1.5t-27 3.5ZM177-581q51-29 89-75t57-103q-51 29-89 75t-57 103Zm249-214Zm-103 36Z"/>
+            </svg>
+            <h4 id="user"></h4>
+        </div>
+        <div id="logoutRow">
+            <p>Logout?</p>
+            <svg id="logOut" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
+            </svg>
+        </div>
+    </div>
+    <div class="headerBar">
+        <h1>Diddily squat Marketplace</h1>
+        <!-- <span id="cartButton" class="material-symbols-outlined">shopping_cart</span> -->
+        <img id="cartButton" src="icons/shopping_cart_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="Shopping Cart icon">
+        <!-- <button >View Cart</button> -->
+    </div>
+    <hr>
+    <div id="buttonBar">
+        <button id=addProduct>Add a product</button>
+        <!-- <button id = getData>Refresh Data</button> -->
+        <svg id="getData" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+                d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z" />
+        </svg>
+    </div>
+    <!--START OF SIDEBAR-->
+    <div id="sideBar">
+        <div id="sideBarHeader">
+            <a id="closeSideBtn">&times;</a>
+            <h1 id="cartHeader">Your Cart</h1>
+        </div>
+        <div id="cartView">
+            <ul id="cartList">
+            </ul>
+            <p id="cartEmpty">Diddily squat...</p>
+            <div id="totalRow">
+                <hr>
+                <div id="totalBar">
+                    <p id="cartTotal">Total:</p>
+                    <p id="cartTotalVal"></p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <!--END OF SIDEBAR-->
+    <!--START OF CODE FOR POPUP-->
+    <div id="popup">
+        <div id="popupHeader">
+            <h3>Add Product:</h3>
+            <a class="closeBtn" id="closeButton">&times;</a>
+        </div>
+        <form id="form" method="post" enctype="multipart/form-data">
+            <div class="formFields">
+                <label>Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div class="formFields">
+                <label>Description:</label>
+                <input type="text" id="description">
+            </div>
+            <div class="formFields">
+                <label>Price:</label>
+                <input type="number" id="price" step=".01">
+            </div>
+            <div class="formFields">
+                <label>Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div id="saveBtn">
+                <input type="submit" id="saveForm" value="Add Product">
+            </div>
+        </form>
+    </div>
+    <!--END OF CODE FOR THE POPUP-->
+    <!--START OF THE CODE BLOCK FOR THE PRODUCT LIST-->
+    <div id="prodBody">
+        <div>
+            <h2 id="avail">Availible Products:</h2>
+        </div>
+        <div>
+            <ul id="productList">
+            </ul>
+        </div>
+    </div>
+    <!--END OF THE CODE BLOCK FOR THE PRODUCT LIST-->
+    <!--START OF THE EDIT PRODUCT FORM-->
+    <div id="editProductContainer">
+        <div id="popupHeader">
+            <h3>Edit Product Information</h3>
+            <a class="closeBtn" id="editClose">&times;</a>
+        </div>
+        <form id="editForm">
+            <div class="formFields">
+                <label>Name:</label>
+                <input type="text" id="editName">
+            </div>
+            <div class="formFields">
+                <label>Description:</label>
+                <input type="text" id="editDescription">
+            </div>
+            <div class="formFields">
+                <label>Price:</label>
+                <input type="number" id="editPrice" step=".001">
+            </div>
+            <div class="formFields">
+                <label>Image:</label>
+                <input type="file" class="editImage" name="image" accept="image/*">
+            </div>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div id="saveBtn">
+                <input type="submit" id="saveEdit" value="Save Edited Product">
+            </div>
+        </form>
+    </div>
+    <!--END OF THE EDIT PRODUCT FORM-->
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

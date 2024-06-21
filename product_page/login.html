@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginStyle.css">
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <!--LOGIN CONTAINER-->
+    <div id="logincontainer">
+        <div id="loginHeader">
+            <svg xmlns="http://www.w3.org/2000/svg" id="loginIcon" viewBox="0 -960 960 960">
+                <path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/>
+            </svg>
+            <h2>Login to Diddily squat Marketplace</h2>
+        </div>
+        <hr>
+        <form id="loginForm">
+            <div class="formRow" id="emailRow"><label>Email Address:</label><input class="inputField" id="emailVal" type="email" required></div>
+            <div class="formRow" id="passRow"><label>Password:</label><input class="inputField" id="passVal" type="password" required></div>
+            <input class="btn" id="loginAcc" type="button" value="Login">
+        </form>
+        <hr style="margin-top: 20px;">
+        <p id="noAcc">Don't have an account and just want to have a look around?</p>
+        <button class="btn" id="guestButton">Login as Guest</button>
+    </div>
+</body>
+<script type="text/javascript" src="js/login.js"></script>
+</html>
