@@ -18,7 +18,7 @@ $(document).ready(function(){
         
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost/Project/product_page/functions/validate.php",
+                    url: "./functions/validate.php",
                     data: {'email' : encodedEmail, 'password': encodedPassword},
                     success: function(data){
                             if(data == "Matched"){

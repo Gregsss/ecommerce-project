@@ -5,6 +5,9 @@ var user;
 $(document).ready(function () {
     var product_id;
     $(window).ready(function () {
+        if(sessionStorage.user === undefined ){
+        window.location.replace("login.html");
+        }
         loadData();
         manipulate();
     })
@@ -115,7 +118,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "http://localhost/Project/product_page/functions/create.php",
+                url: "./functions/create.php",
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -167,7 +170,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost/Project/product_page/functions/update.php",
+            url: "./functions/update.php",
             data: formData,
             processData: false,
             contentType: false,
@@ -190,7 +193,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost/Project/product_page/functions/delete.php",
+            url: "./functions/delete.php",
             data: { 'id': prodtoremove },
             success: function (data) {
                 alert("Success");
@@ -222,9 +225,7 @@ function loadData() {
                 "<p id=producDesc>" + product.description + "</p>" +
                 "<p id=prodPrice>R" + product.price + "</p>" +
                 "<div id=buttonBar>" +
-                // "<button class=cardBtn >Add to cart </button>" +
                 "<button id=removeListItem class=cardBtn >Remove </button>" +
-                // "<span id=addCart class=material-symbols-outlined>shopping_cart_checkout</span>" +
                 "<svg xmlns='http://www.w3.org/2000/svg' id='addCart' viewBox='0 -960 960 960'><path d='M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z'/></svg>" +
                 "<button id=editListItem class=cardBtn >Edit </button>" +
                 "</div>" +
